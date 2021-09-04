@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>{#clickview.desc}</title>
+    <script type="text/javascript">
+        var tinymce_clickview_include = function(path) {
+            document.write('<script type="text/javascript" src="' +
+                parent.tinyMCE.baseURL + '/' + path + '"></' + 'script>');
+        };
+
+        tinymce_clickview_include('tiny_mce_popup.js');
+    </script>
+</head>
+<body>
+<div id="clickview_iframe_wrapper"></div>
+<script type="text/javascript" src="js/clickview.js"></script>
+</body>
+</html>
