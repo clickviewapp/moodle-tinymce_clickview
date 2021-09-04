@@ -1,10 +1,10 @@
 (function () {
-	tinymce.create('tinymce.plugins.ClickViewEmbed', {
+	tinymce.create('tinymce.plugins.ClickView', {
 
 		init : function (ed, url) {
-			ed.addCommand('mceClickviewEmbed', function () {
+			ed.addCommand('mceClickview', function () {
 				ed.windowManager.open({
-					file : ed.getParam("moodle_plugin_base") + 'clickviewembed/dialog.php',
+					file : ed.getParam("moodle_plugin_base") + 'clickview/dialog.php',
 					width : 800,
 					height : 494,
 					inline : 1,
@@ -14,9 +14,9 @@
 				});
 			});
 
-			ed.addButton('clickviewembed', {
-				title: 'clickviewembed.desc', //Moodle Substitution
-				cmd: 'mceClickviewEmbed',
+			ed.addButton('clickview', {
+				title: 'clickview.desc', //Moodle Substitution
+				cmd: 'mceClickview',
 				image: url + '/img/icon.png'
 			});
 		},
@@ -32,5 +32,5 @@
 		}
 	});
 
-	tinymce.PluginManager.add('clickviewembed', tinymce.plugins.ClickViewEmbed);
+	tinymce.PluginManager.add('clickview', tinymce.plugins.ClickView);
 })();

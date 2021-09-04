@@ -1,4 +1,4 @@
 <?php
 
 $string['pluginname'] = 'ClickView Embedded Video';
-$string['clickviewembed:desc'] = 'Insert ClickView video';
+$string['clickview:desc'] = 'Insert ClickView video';

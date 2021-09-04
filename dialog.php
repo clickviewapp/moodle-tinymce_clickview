@@ -18,10 +18,10 @@
     $url = new moodle_url($config->hostlocation . $config->iframeurl, $params);
 
 	$PAGE->set_context(context_system::instance());
-	$PAGE->set_url('/lib/editor/tinymce/plugins/clickviewembed/dialog.php');
+	$PAGE->set_url('/lib/editor/tinymce/plugins/clickview/dialog.php');
 
 	$editor = get_texteditor('tinymce');
-	$plugin = $editor->get_plugin('clickviewembed');
+	$plugin = $editor->get_plugin('clickview');
 	$htmllang = get_html_lang();
 
 	header('Content-Type: text/html; charset=utf-8');
@@ -30,7 +30,7 @@
 <!DOCTYPE html>
 <html <?php echo $htmllang ?> >
 	<head>
-		<title><?php print_string('clickviewembed:desc', 'tinymce_clickviewembed'); ?></title>
+		<title><?php print_string('clickview:desc', 'tinymce_clickview'); ?></title>
 		<script type="text/javascript" src="<?php echo $editor->get_tinymce_base_url(); ?>/tiny_mce_popup.js"></script>
 		<script type="text/javascript" src="<?php echo $config->eventsapi; ?>"></script>
 		<script type="text/javascript" src="<?php echo $plugin->get_tinymce_file_url('js/dialog.js'); ?>" ></script>

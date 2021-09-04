@@ -17,7 +17,7 @@
 /**
  * Plugin version and other meta-data are defined here.
  *
- * @package     tinymce_clickviewembed
+ * @package     tinymce_clickview
  * @copyright   2021 ClickView Pty. Limited <info@clickview.com.au>
  * @license     https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
@@ -26,7 +26,7 @@ defined('MOODLE_INTERNAL') || die();
 
 $plugin->version = 2021083000;
 $plugin->requires = 2018051700;
-$plugin->component = 'tinymce_clickviewembed';
+$plugin->component = 'tinymce_clickview';
 $plugin->dependencies = [
         'local_clickview' => 2021083000
 ];

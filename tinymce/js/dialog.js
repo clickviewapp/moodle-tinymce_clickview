@@ -1,5 +1,5 @@
 (function () {
-	var ClickviewEmbedDialog = {
+	var ClickviewDialog = {
 		init : function () {
 			var pluginFrame = document.getElementById('cv-plugin-frame')
 			var eventsApi = new CVEventsApi(pluginFrame.contentWindow);
@@ -10,5 +10,5 @@
 		}
 	};
 
-	tinyMCEPopup.onInit.add(ClickviewEmbedDialog.init, ClickviewEmbedDialog);
+	tinyMCEPopup.onInit.add(ClickviewDialog.init, ClickviewDialog);
 })();
