@@ -27,3 +27,6 @@ defined('MOODLE_INTERNAL') || die();
 $plugin->version = 2021083000;
 $plugin->requires = 2018051700;
 $plugin->component = 'tinymce_clickviewembed';
+$plugin->dependencies = [
+        'local_clickview' => 2021083000
+];

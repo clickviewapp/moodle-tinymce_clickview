@@ -3,7 +3,19 @@
 	define('NO_MOODLE_COOKIES', true); // Session not used here.
 
 	require(dirname(dirname(dirname(dirname(dirname(dirname(__FILE__)))))) . '/config.php');
-	require('./cv-config.php');
+
+    $config = get_config('local_clickview');
+
+    $params = [
+            'consumerKey' => $config->consumerkey,
+            'singleSelectMode' => 'true'
+    ];
+
+    if (!empty($schoolid = $config->schoolid)) {
+        $params['schoolId'] = $schoolid;
+    }
+
+    $url = new moodle_url($config->hostlocation . $config->iframeurl, $params);
 
 	$PAGE->set_context(context_system::instance());
 	$PAGE->set_url('/lib/editor/tinymce/plugins/clickviewembed/dialog.php');
@@ -20,10 +32,10 @@
 	<head>
 		<title><?php print_string('clickviewembed:desc', 'tinymce_clickviewembed'); ?></title>
 		<script type="text/javascript" src="<?php echo $editor->get_tinymce_base_url(); ?>/tiny_mce_popup.js"></script>
-		<script type="text/javascript" src="//static.clickview.com.au/cv-events-api/1.0.0/cv-events-api.min.js"></script>
+		<script type="text/javascript" src="<?php echo $config->eventsapi; ?>"></script>
 		<script type="text/javascript" src="<?php echo $plugin->get_tinymce_file_url('js/dialog.js'); ?>" ></script>
 	</head>
 	<body>
-		<iframe frameborder="0" id="cv-plugin-frame" src="<?php echo $CFG_CLICKVIEW->pluginFrameUrl; ?>" width="100%" height="474" ><iframe>
+		<iframe frameborder="0" id="cv-plugin-frame" src="<?php echo $url; ?>" width="100%" height="474" ><iframe>
 	</body>
 </html>
