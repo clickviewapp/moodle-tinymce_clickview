@@ -14,13 +14,11 @@
 				});
 			});
 
-			if (tinymce.settings.valid_elements && tinymce.settings.valid_elements.indexOf("*[*]") > -1) {
-			    ed.addButton('clickviewembed', {
-			        title: 'clickviewembed.desc', //Moodle Substitution
-			        cmd: 'mceClickviewEmbed',
-			        image: url + '/img/icon.png'
-			    });
-			}
+			ed.addButton('clickviewembed', {
+				title: 'clickviewembed.desc', //Moodle Substitution
+				cmd: 'mceClickviewEmbed',
+				image: url + '/img/icon.png'
+			});
 		},
 
 		getInfo : function () {
