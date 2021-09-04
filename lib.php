@@ -37,7 +37,7 @@ class tinymce_clickview extends editor_tinymce_plugin {
             array $options = null) {
 
         $params['lang'] = get_html_lang();
-        $params['iframe'] = $this->get_iframe_html();
+        $params['iframe'] = local_clickview\Utils::get_iframe_html();
         $params['eventsapi'] = get_config('local_clickview', 'eventsapi');
 
         if ($row = $this->find_button($params, 'managefiles')) {
@@ -50,30 +50,5 @@ class tinymce_clickview extends editor_tinymce_plugin {
 
         // Add JS file, which uses default name.
         $this->add_js_plugin($params);
-    }
-
-    /**
-     * Returns the ClickView iframe wrapper.
-     * TODO: Could be moved to local_clickview, so it can be used from all plugins.
-     *
-     * @return string
-     * @throws dml_exception
-     * @throws moodle_exception
-     */
-    private function get_iframe_html(): string {
-        $config = get_config('local_clickview');
-
-        $params = [
-                'consumerKey' => $config->consumerkey,
-                'singleSelectMode' => 'true'
-        ];
-
-        if (!empty($schoolid = $config->schoolid)) {
-            $params['schoolId'] = $schoolid;
-        }
-
-        $url = new moodle_url($config->hostlocation . $config->iframeurl, $params);
-
-        return '<iframe id="clickview_iframe" src="' . $url . '" width="800" height="494" frameborder="0"></iframe>';
     }
 }
