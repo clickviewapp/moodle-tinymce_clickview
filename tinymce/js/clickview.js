@@ -19,6 +19,10 @@
  * @license    https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
+if (url = tinyMCEPopup.getParam('moodlecss')) {
+	document.write('<link rel="stylesheet" href="' + url + '">');
+}
+
 if (url = tinyMCEPopup.getParam('eventsapi')) {
     document.write('<script type="text/javascript" src="' + tinyMCEPopup.editor.documentBaseURI.toAbsolute(url) + '"></script>');
 }

@@ -35,9 +35,11 @@ class tinymce_clickview extends editor_tinymce_plugin {
      */
     protected function update_init_params(array &$params, context $context,
             array $options = null) {
+        global $CFG;
 
         $params['lang'] = get_html_lang();
         $params['iframe'] = local_clickview\Utils::get_iframe_html();
+        $params['moodlecss'] = $CFG->wwwroot . '/theme/boost/style/moodle.css';
         $params['eventsapi'] = get_config('local_clickview', 'eventsapi');
 
         if ($row = $this->find_button($params, 'managefiles')) {
