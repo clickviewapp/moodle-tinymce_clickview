@@ -14,6 +14,8 @@
 // You should have received a copy of the GNU General Public License
 // along with Moodle.  If not, see <https://www.gnu.org/licenses/>.
 
+use local_clickview\Utils;
+
 defined('MOODLE_INTERNAL') || die();
 
 /**
@@ -38,9 +40,9 @@ class tinymce_clickview extends editor_tinymce_plugin {
         global $CFG;
 
         $params['lang'] = get_html_lang();
-        $params['iframe'] = local_clickview\Utils::get_iframe_html();
+        $params['iframe'] = Utils::get_iframe_html();
+        $params['eventsapi'] = Utils::get_eventsapi_url()->out();
         $params['moodlecss'] = $CFG->wwwroot . '/theme/boost/style/moodle.css';
-        $params['eventsapi'] = get_config('local_clickview', 'eventsapi');
 
         if ($row = $this->find_button($params, 'managefiles')) {
             // Add button after 'managefiles'.
