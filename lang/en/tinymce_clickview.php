@@ -25,3 +25,4 @@
 
 $string['pluginname'] = 'Embed ClickView Video';
 $string['clickview:desc'] = 'Insert a ClickView video';
+$string['privacy:metadata'] = 'The TinyMCE ClickView plugin does not store any personal data.';
