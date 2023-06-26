@@ -19,19 +19,20 @@
  * @license    https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-(function () {
-    // tinymce.PluginManager.requireLangPack('youtube');
+/* global tinymce */
+/* eslint no-undef: "error" */
 
+(function() {
     tinymce.create('tinymce.plugins.ClickView', {
-        init: function (ed, url) {
-            ed.addCommand('mceclickview', function () {
+        init: function(ed, url) {
+            ed.addCommand('mceclickview', function() {
                 ed.windowManager.open({
                     file: url + '/clickview.htm',
                     width: 816,
                     height: 510,
                     inline: 1
                 }, {
-                    plugin_url: url,
+                    plugin_url: url, // eslint-disable-line camelcase
                 });
             });
 

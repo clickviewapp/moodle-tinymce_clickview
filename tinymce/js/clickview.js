@@ -19,25 +19,31 @@
  * @license    https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
+/* global CVEventsApi, tinyMCEPopup, url */
+/* eslint no-undef: "error" */
+/* jshint -W098 */
+
+/* jshint ignore:start */
 if (url = tinyMCEPopup.getParam('moodlecss')) {
-	document.write('<link rel="stylesheet" href="' + url + '">');
+    document.write('<link rel="stylesheet" href="' + url + '">');
 }
 
 if (url = tinyMCEPopup.getParam('eventsapi')) {
     document.write('<script type="text/javascript" src="' + tinyMCEPopup.editor.documentBaseURI.toAbsolute(url) + '"></script>');
 }
+/* jshint ignore:end */
 
-function tinymce_clickview_init() {
-	document.documentElement.lang = tinyMCEPopup.getParam('lang');
-	document.getElementById('clickview_iframe_wrapper').innerHTML = tinyMCEPopup.getParam('iframe');
+function tinymce_clickview_init() { // eslint-disable-line camelcase, require-jsdoc
+    document.documentElement.lang = tinyMCEPopup.getParam('lang');
+    document.getElementById('clickview_iframe_wrapper').innerHTML = tinyMCEPopup.getParam('iframe');
 
-	var pluginFrame = document.getElementById('clickview_iframe'),
-		eventsApi = new CVEventsApi(pluginFrame.contentWindow);
+    var pluginFrame = document.getElementById('clickview_iframe'),
+        eventsApi = new CVEventsApi(pluginFrame.contentWindow);
 
-	eventsApi.on('cv-lms-addvideo', function (event, detail) {
-		tinyMCEPopup.editor.execCommand('mceInsertRawHTML', false, detail.embedHtml);
-		tinyMCEPopup.close();
-	}, true);
+    eventsApi.on('cv-lms-addvideo', function (event, detail) {
+        tinyMCEPopup.editor.execCommand('mceInsertRawHTML', false, detail.embedHtml);
+        tinyMCEPopup.close();
+    }, true);
 }
 
 tinyMCEPopup.onInit.add(tinymce_clickview_init);
