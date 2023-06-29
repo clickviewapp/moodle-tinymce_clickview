@@ -16,8 +16,6 @@
 
 use local_clickview\Utils;
 
-defined('MOODLE_INTERNAL') || die();
-
 /**
  * Plugin for embed ClickView video in TinyMCE (Moodle-specific modified version).
  *
