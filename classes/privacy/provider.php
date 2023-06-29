@@ -24,8 +24,6 @@
 
 namespace tinymce_clickview\privacy;
 
-defined('MOODLE_INTERNAL') || die();
-
 /**
  * Privacy Subsystem for tinymce_clickview implementing null_provider.
  *
