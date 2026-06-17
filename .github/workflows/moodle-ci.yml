@@ -44,7 +44,6 @@ jobs:
         uses: shivammathur/setup-php@v2.37.1
         with:
           php-version: ${{ matrix.php }}
-          extensions: ${{ matrix.extensions }}
           ini-values: max_input_vars=5000
           coverage: none
 
